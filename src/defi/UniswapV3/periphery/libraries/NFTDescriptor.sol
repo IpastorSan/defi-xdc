@@ -1,25 +1,25 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.7.0;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
-import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
-import '@uniswap/v3-core/contracts/libraries/BitMath.sol';
-import '@uniswap/v3-core/contracts/libraries/FullMath.sol';
-import '@openzeppelin/contracts/utils/Strings.sol';
-import '@openzeppelin/contracts/math/SafeMath.sol';
-import '@openzeppelin/contracts/math/SignedSafeMath.sol';
-import 'base64-sol/base64.sol';
+import '../../core/interfaces/IUniswapV3Pool.sol';
+import '../../core/libraries/TickMath.sol';
+import '../../core/libraries/BitMath.sol';
+import '../../core/libraries/FullMath.sol';
+import 'openzeppelin/contracts/utils/Strings.sol';
+import 'openzeppelin/contracts/utils/math/Math.sol';
+import 'openzeppelin/contracts/utils/math/SignedMath.sol';
+import '../../base64.sol';
 import './HexStrings.sol';
 import './NFTSVG.sol';
 
 library NFTDescriptor {
     using TickMath for int24;
     using Strings for uint256;
-    using SafeMath for uint256;
-    using SafeMath for uint160;
-    using SafeMath for uint8;
-    using SignedSafeMath for int256;
+    using Math for uint256;
+    using Math for uint160;
+    using Math for uint8;
+    using SignedMath for int256;
     using HexStrings for uint256;
 
     uint256 constant sqrt10X128 = 1076067327063303206878105757264492625226;

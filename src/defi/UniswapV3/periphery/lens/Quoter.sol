@@ -2,10 +2,10 @@
 pragma solidity 0.8.19;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/libraries/SafeCast.sol';
-import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
-import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
-import '@uniswap/v3-core/contracts/interfaces/callback/IUniswapV3SwapCallback.sol';
+import '../../core/libraries/SafeCast.sol';
+import '../../core/libraries/TickMath.sol';
+import '../../core/interfaces/IUniswapV3Pool.sol';
+import '../../core/interfaces/callback/IUniswapV3SwapCallback.sol';
 
 import '../interfaces/IQuoter.sol';
 import '../base/PeripheryImmutableState.sol';
