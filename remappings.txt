@@ -4,3 +4,6 @@ forge-std/=lib/forge-std/src/
 openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
 openzeppelin/=lib/openzeppelin-contracts/
+sstore2/=lib/sstore2/contracts/
+v3-core/=lib/v3-core/
+v3-periphery/=lib/v3-periphery/contracts/
