@@ -18,8 +18,7 @@ contract XSwapVault is ERC4626, Ownable2Step {
      */
     constructor(string memory name_, 
                 string memory symbol_, 
-                address asset_) 
-    initializer ERC20(name_, symbol_) ERC4626(IERC20(asset_)){
+                address asset_) ERC20(name_, symbol_) ERC4626(IERC20(asset_)){
     
     }
 
@@ -56,7 +55,7 @@ contract XSwapVault is ERC4626, Ownable2Step {
         uint256,
         address receiver,
         address owner
-    ) public override(ISlot, ERC4626) returns (uint256) {
+    ) public override returns (uint256) {
         (, uint256 shares) = _dequeueAndWithdraw(receiver, owner);
         return shares;
     }
@@ -76,7 +75,7 @@ contract XSwapVault is ERC4626, Ownable2Step {
         uint256 assets,
         uint256 shares
     ) internal override {
-        _rewardPool.claim();
+        // _rewardPool.claim();
         super._withdraw(caller, receiver, owner, assets, shares);
     }
 

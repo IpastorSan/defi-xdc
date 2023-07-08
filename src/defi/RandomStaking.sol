@@ -14,7 +14,7 @@ contract RandomStaking is IRandomStaking, Ownable {
 
     mapping (address => uint256) internal _stakedBalances;
 
-    constructor(address rewardsToken) {
+    constructor(address rewardsToken) Ownable(msg.sender) {
         _rewardsToken = rewardsToken;
     }
 
@@ -22,7 +22,7 @@ contract RandomStaking is IRandomStaking, Ownable {
         if(amount < _minStakeAmount) revert InsufficientStakeAmount();
         _stakedBalances[msg.sender] += amount;
         _totalStaked += amount;
-        IERC20(rewardsToken).safeTransferFrom(msg.sender, address(this), amount);
+        IERC20(_rewardsToken).safeTransferFrom(msg.sender, address(this), amount);
 
         emit Staked(msg.sender, amount);
     }
@@ -30,19 +30,19 @@ contract RandomStaking is IRandomStaking, Ownable {
     function unstake(uint256 amount) external {
         if(amount > _stakedBalances[msg.sender]) revert InsufficientAmountToUnstake();
         _stakedBalances[msg.sender] -= amount;
-        uint256 rewards = _calculateRewards(user, amount);
+        uint256 rewards = _calculateRewards(msg.sender, amount);
         _totalStaked -= amount;
-        IERC20(rewardsToken).safeTransfer(msg.sender, amount + rewards);
+        IERC20(_rewardsToken).safeTransfer(msg.sender, amount + rewards);
 
         emit Unstaked(msg.sender, amount + rewards);
     }
 
     function unstakeAll() external {
         uint256 amount = _stakedBalances[msg.sender];
-        uint256 rewards = _calculateRewards(user, amount);
+        uint256 rewards = _calculateRewards(msg.sender, amount);
         _stakedBalances[msg.sender] = 0;
         _totalStaked -= amount;
-        IERC20(rewardsToken).safeTransfer(msg.sender, amount + rewards);
+        IERC20(_rewardsToken).safeTransfer(msg.sender, amount + rewards);
 
         emit Unstaked(msg.sender, amount + rewards);
     }
@@ -53,6 +53,16 @@ contract RandomStaking is IRandomStaking, Ownable {
 
     function getMinStakeAmount() external view returns (uint256) {
         return _minStakeAmount;
+    }
+
+    function _calculateRewards(address user, uint256 amount) internal returns (uint256) {
+        uint256 seed = uint256(keccak256(abi.encodePacked(block.timestamp, block.difficulty, user)));
+
+        uint256 pseudoRandomPercentage = (seed % (100 - 1)) + 1;
+
+        uint256 pseudoRandomNumber = (amount * pseudoRandomPercentage) / 100;
+
+        return pseudoRandomNumber;
     }
 
 }

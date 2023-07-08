@@ -10,7 +10,7 @@ contract ERC721Portfolio is IERC721Portfolio, ERC721, Ownable {
     uint256 public index = 1;
     string public baseTokenURI;
 
-    constructor(string memory baseURI) ERC721("NFTContract", "NFT") {
+    constructor(string memory baseURI) ERC721("NFTContract", "NFT") Ownable(msg.sender){
         baseTokenURI = baseURI;
     }
 

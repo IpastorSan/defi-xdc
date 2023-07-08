@@ -14,6 +14,9 @@ contract Deploy is Script, Ownable {
     string base_uri_portfolio; 
     string base_uri_loot;
 
+    constructor() Ownable(msg.sender) {
+    }
+
     function setUp() public {
         deployer = address(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266);
         alice = address(0x70997970C51812dc3A010C7d01b50e0d17dc79C8);
@@ -27,7 +30,7 @@ contract Deploy is Script, Ownable {
         vm.startBroadcast(deployerPrivateKey);
 
         //Deploy ERC721portfolio and attach 1 to every address
-        ERC721Portfolio portfolio = new ERC721portfolio(base_uri_portfolio);
+        ERC721Portfolio portfolio = new ERC721Portfolio(base_uri_portfolio);
         portfolio.mintNFTs(deployer); //ERC721 with token Id 1
         portfolio.mintNFTs(alice); //ERC721 with token Id 2
         portfolio.mintNFTs(bob); //ERC721 with token Id 3

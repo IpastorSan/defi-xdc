@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.19;
 
-interface IERC721Profile {
+interface IERC721Portfolio {
 
     error CallerIsAnotherContract();
     error NotEnoughNFTsLeft();
