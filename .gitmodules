@@ -1,0 +1,3 @@
+[submodule "xdc-swap/lib/forge-std"]
+	path = xdc-swap/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std

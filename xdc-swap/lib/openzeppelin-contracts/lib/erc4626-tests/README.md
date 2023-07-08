@@ -61,7 +61,7 @@ $ forge install a16z/erc4626-tests
 
 ```solidity
 // SPDX-License-Identifier: AGPL-3.0
-pragma solidity >=0.8.0 <0.9.0;
+pragma solidity >=0.7.0 <0.9.0;
 
 import "erc4626-tests/ERC4626.test.sol";
 
