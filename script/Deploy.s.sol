@@ -2,11 +2,10 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Script.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "../src/mocks/ERC721Portfolio.sol";
-import "../src/mocks/ERC1155Loot.sol";
-import "../src/ERC6551Registry.sol";
-import "../src/ERC6551.sol";
+import "openzeppelin/contracts/access/Ownable.sol";
+import "../src/portfolio/ERC721Portfolio.sol";
+import "../src/portfolio/ERC6551Registry.sol";
+import "../src/portfolio/ERC6551Account.sol";
 
 contract Deploy is Script, Ownable {
     address deployer;
@@ -40,7 +39,6 @@ contract Deploy is Script, Ownable {
         // Deploy ERC6551 Wallet Account for ERC721 held by Deployer
         address smartAccount = registry.createAccount(address(implementation), 31337, address(portfolio),
          1, 1,"");
-
 
         vm.stopBroadcast();
     }

@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.17;
+pragma solidity 0.8.19;
 
-import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/interfaces/IERC1271.sol";
-import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
-import "@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
+import "openzeppelin/contracts/utils/introspection/IERC165.sol";
+import "openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "openzeppelin/contracts/interfaces/IERC1271.sol";
+import "openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
+import "openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
 import "sstore2/utils/Bytecode.sol";
-import "./interfaces/IERC6551Account.sol";
+import "../interfaces/ERC6551/IERC6551Account.sol";
 
 contract ERC6551Account is IERC165, IERC1271, IERC6551Account, ERC1155Holder {
 
