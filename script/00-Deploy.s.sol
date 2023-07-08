@@ -14,12 +14,16 @@ contract Deploy is Script, Ownable {
     }
 
     function setUp() public {
-        UniswapV3Factory = new UniswapV3Factory();
-        UniswapV3PoolDeployer = new UniswapV3PoolDeployer();
+
     }
 
     function run() public {
         vm.startBroadcast();
+
+        UniswapV3Factory factory = new UniswapV3Factory();
+        UniswapV3PoolDeployer deployer = new UniswapV3PoolDeployer();
+
+        vm.stopBroadcast();
 
     }
 }
