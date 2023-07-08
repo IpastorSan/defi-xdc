@@ -1,0 +1,14 @@
+{
+    "filter_paths": "lib",
+    "solc_remaps": [
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        "forge-std/=lib/forge-std/src/",
+        "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/",
+        "openzeppelin/=lib/openzeppelin-contracts/contracts/"
+      ],
+    "exclude_informational": true,
+    "exclude_low": true
+  }
+
+  
