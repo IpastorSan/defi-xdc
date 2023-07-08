@@ -4,7 +4,7 @@ out = 'out'
 libs = ['lib']
 solc = "0.7.6"
 optimizer = true
-optimizer-runs = 10_000
+optimizer-runs = 100
 
 [rpc_endpoints]
 xdc_test = "${XDC_RPC_TEST}"
