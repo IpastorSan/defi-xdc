@@ -1,6 +1,6 @@
 # Smart contracts
 
-## Apothem and Xinfin Addresses
+## Xinfin Addresses
 ### Uniswap
 - UniswapV3Factory: 0x557f543ad8c7f8648B8Cadab1144cC8E9998CD6F
 - UniswapInterfaceMulticall: 0x1a5f6afd9534c92d06E23500bA2ABAaeC711742C
@@ -30,7 +30,7 @@
 - PortfolioNFT: 0x2F8fF9B87AEDc1f1DbB9d7C8F1F0451B168a869B
 - ERC6551 Canonical Registry: 0x455990C9651D478B027489b49C943283575083e7
 - Token Bound account Implementation: 0x67B18210fc6C25200413c91E55199a3BB8e5c3D4
-- Token Bound Account for NFT with id 1: 0x4593a4A38330d23C751Ef3479febf33f30DC2391
+- Token Bound Account for NFT with id 2: 0x4593a4A38330d23C751Ef3479febf33f30DC2391
 
 
 ## Deploy locally to Anvil
