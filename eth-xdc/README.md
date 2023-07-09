@@ -24,13 +24,13 @@
 
 ## Naive Yield Bearing protocol and ERC4626 Vault
 - LinearStaking: 0x46b390A66781E650240a6c97eC96b96e99003084
-- LinearRewardsVault: 0x408aE97477252D77566eBD4d2Aa3893185766AF4
+- LinearRewardsVault: 0xbB57468708a46e4EcE063Ea869AaDFE82aE4C62e
 
 ## Token Bound Accounts (ERC6551) that represent portfolios of Assets
 - PortfolioNFT: 0x2F8fF9B87AEDc1f1DbB9d7C8F1F0451B168a869B
 - ERC6551 Canonical Registry: 0x455990C9651D478B027489b49C943283575083e7
 - Token Bound account Implementation: 0x67B18210fc6C25200413c91E55199a3BB8e5c3D4
-- Token Bound Account for NFT with id 1
+- Token Bound Account for NFT with id 1: 0x4593a4A38330d23C751Ef3479febf33f30DC2391
 
 
 ## Deploy locally to Anvil

@@ -26,6 +26,7 @@ contract LinearRewardsVault is ERC4626 {
         ERC20(name_, symbol_) ERC4626(IERC20(asset_)) {
         _linearStaking = ILinearStaking(linearStaking);
         _asset = IERC20(asset_);
+        _asset.approve(linearStaking, type(uint256).max);
     }
 
     /** 

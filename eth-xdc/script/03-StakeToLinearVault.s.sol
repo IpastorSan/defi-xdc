@@ -26,6 +26,9 @@ contract Deploy is Script, Ownable {
         
         vm.startBroadcast();
 
+        XRC20 token = XRC20(token0);
+        token.mint(vm.envAddress("SMART_ACCOUNT_ADDRESS"), 100 ether);
+
         //Get address of Smart Account owned by Deployer
 
         //Build tx, encode it and pass it to smart account. If msg.sender == owner of Portfolio NFT, the transaction
@@ -36,11 +39,12 @@ contract Deploy is Script, Ownable {
         //@param target Address of the contract to be called
         //@param value Amount of wei to be sent with the transaction
         //@param data Encoded data of the transaction
+        console.log(msg.sender);
         IERC6551Account(payable(smartAccount)).executeCall(address(token0), 0, data1);
         
         //We are encoding the deposit function from ERC4626
-        bytes memory data2 = abi.encodeWithSignature("deposit(uint256,address)", XRC20(token0).balanceOf(vm.envAddress("DEPLOYER_ADDRESS")), msg.sender);
-
+        bytes memory data2 = abi.encodeWithSignature("deposit(uint256,address)", XRC20(token0).balanceOf(vm.envAddress("SMART_ACCOUNT_ADDRESS")), vm.envAddress("SMART_ACCOUNT_ADDRESS"));
+        
         IERC6551Account(payable(smartAccount)).executeCall(address(linearRewardsVault), 0, data2);
 
         vm.stopBroadcast();
