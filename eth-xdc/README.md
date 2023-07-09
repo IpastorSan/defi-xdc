@@ -16,11 +16,22 @@
 - SwapRouter02: 0x01bfBD067aFd3aD96aA2C82c3FB9E2DB7E4127C6
 
 ### Test XRC20 tokens
-- token0: 
-- token1:
+- token0: 0x5AC3B12D0e70ffcdc0dB1D6Fb4aB4CAF11759Bc3
+- token1: 0xa49E3c2d28bD09A2369b585fD24d3aC1ad943201
 
 ### token0/token1 Pool
--token0/token1 pool: 
+- token0/token1 pool: 0x3C999d936EF84c035d883563cE5f294a0524f459
+
+## Naive Yield Bearing protocol and ERC4626 Vault
+- LinearStaking: 0x46b390A66781E650240a6c97eC96b96e99003084
+- LinearRewardsVault: 0x408aE97477252D77566eBD4d2Aa3893185766AF4
+
+## Token Bound Accounts (ERC6551) that represent portfolios of Assets
+- PortfolioNFT: 0x2F8fF9B87AEDc1f1DbB9d7C8F1F0451B168a869B
+- ERC6551 Canonical Registry: 0x455990C9651D478B027489b49C943283575083e7
+- Token Bound account Implementation: 0x67B18210fc6C25200413c91E55199a3BB8e5c3D4
+- Token Bound Account for NFT with id 1
+
 
 ## Deploy locally to Anvil
 
@@ -28,16 +39,16 @@
 - get one of the 10 default private keys that it gives you. Store it in an `.env`file and run `source .env`in your Bash terminal.
 - Run `forge script script/Deploy.s.sol:Deploy --fork-url http://localhost:8545  --private-key $PRIVATE_KEY_ANVIL --broadcast` 
 
-## Deploy Locally to Anvil forking Xinfin
-- Run `forge script script/Deploy.s.sol:Deploy --fork-url $XDC_RPC  --private-key $PRIVATE_KEY --broadcast` 
+## Deploy Locally to Anvil forking Xinfin with existing addresses.
+- Run `forge script script/Deploy.s.sol:Deploy --fork-url $XDC_RPC  --private-key $PRIVATE_KEY --broadcast --legacy` 
 
 ## Deploy to Apothem
 - Store your Private Key, Etherscan key for verification and RPC URL in an `.env`file and run `source .env`in your Bash terminal.
-- Run `forge script script/Deploy.s.sol:Deploy --rpc-url $XDC_RPC_TEST  --private-key $PRIVATE_KEY --broadcast -vvvv`
+- Run `forge script script/Deploy.s.sol:Deploy --rpc-url $XDC_RPC_TEST  --private-key $PRIVATE_KEY --broadcast --legacy -vvvv`
 
 ## Deploy to Xinfin
 - Store your Private Key, Etherscan key for verification and RPC URL in an `.env`file and run `source .env`in your Bash terminal.
-- Run `forge script script/Deploy.s.sol:Deploy --rpc-url $XDC_RPC  --private-key $PRIVATE_KEY --broadcast  -vvvv`
+- Run `forge script script/Deploy.s.sol:Deploy --rpc-url $XDC_RPC  --private-key $PRIVATE_KEY --broadcast --legacy -vvvv`
 
 ## Run Foundry tests
 Easy, run `forge test -vvvv`
